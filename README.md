@@ -1,2 +1,1 @@
-# learn-note
-日常学习笔记
+# Daily Accumula 日常积累
