@@ -1,3 +1,4 @@
+``` 
 git init 创建仓库
 
 git status 查看当前状态
@@ -40,3 +41,4 @@ git stash //把未完成的修改缓存到栈容器中
 git blame someFile //查看某个文件的每一行的修改记录（）谁在什么时候修改的）
 
 git push origin master 提交代码
+```
