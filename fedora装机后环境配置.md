@@ -29,6 +29,8 @@
     newgrp docker
   #### e.重启docker
     sudo systemctl restart docekr
+ ### 安装docker-compose
+ sudo pip3 install docker-compose
  ## 安装显卡驱动
  ### 1.添加rpmfusion源
  到 [rpmfusion官网](https://rpmfusion.org/) 下载release版本的rpm进行安装  \
