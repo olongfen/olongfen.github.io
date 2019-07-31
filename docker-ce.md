@@ -1,4 +1,4 @@
-在Ubuntu上安装Docker CE
+## 在Ubuntu上安装Docker CE
 
 卸载旧版本的Docker，旧版本的docker的名称为docker或docker-engine，如果已安装，请先卸载：
 
@@ -36,55 +36,10 @@ sudo apt-get install docker-ce
 
 如果想将Docker用作非root用户，现在应该考虑将你的用户添加到“docker”组，例如：
 
-sudo usermod -aG docker your-user
+sudo usermod -aG docker your-user 
 
-运行以下命令以查看已安装的docker版本：
 
-$ docker version
-
-Client:
-
-Version:18.09.3
-
-API version:1.39
-
-Go version:go1.10.8
-
-Git commit:774a1f4
-
-Built:Thu Feb 28 06:53:11 2019
-
-OS/Arch:linux/amd64
-
-Experimental:false
-
-Server:Docker Engine - Community
-
-Engine:
-
-Version:18.09.3
-
-API version:1.39 (minimum version 1.12)
-
-Go version:go1.10.8
-
-Git commit:774a1f4
-
-Built:Thu Feb 28 05:59:55 2019
-
-OS/Arch:linux/amd64
-
-Experimental:false
-
-要获得有关docker的更多详细信息，请运行以下命令：
-
-$ docker info
-
-参考：在Ubuntu 18.04系统中安装指定docker版本的简单方法。
-
- 
-
-在Debian上安装Docker CE
+## 在Debian上安装Docker CE
 
 更新apt包索引：
 
@@ -120,7 +75,7 @@ sudo rm -rf /var/lib/docker
 
  
 
-在Fedora上安装Docker CE
+## 在Fedora上安装Docker CE
 
 卸载旧版本的Docker：
 
@@ -144,7 +99,7 @@ sudo systemctl start docker && sudo systemctl enable docker
 
  
 
-在CentOS上安装Docker CE
+## 在CentOS上安装Docker CE
 
 卸载旧版本：
 
@@ -172,7 +127,7 @@ sudo systemctl start docker && sudo systemctl enable docker
 
  
 
-在Arch上安装Docker CE
+## 在Arch上安装Docker CE
 
 安装pacaur：
 
@@ -181,44 +136,4 @@ curl -s https://gist.githubusercontent.com/Tadly/0e65d30f279a34c33e9b/raw/pacaur
 使用pacaur安装Docker CE：
 
 pacaur --needed --noconfirm --noedit -S docker
-
-确认已成功安装，运行sudo docker version命令：
-
-$ sudo docker version
-
-Client:
-
-Version:18.09.2-ce
-
-API version:1.39
-
-Go version:go1.11.5
-
-Git commit:62479626f2
-
-Built:Mon Feb 11 23:58:17 2019
-
-OS/Arch:linux/amd64
-
-Experimental:false
-
-Server:
-
-Engine:
-
-Version:18.09.2-ce
-
-API version:1.39 (minimum version 1.12)
-
-Go version:go1.11.5
-
-Git commit:62479626f2
-
-Built:Mon Feb 11 23:55:58 2019
-
-OS/Arch:linux/amd64
-
-Experimental:false
-
-注：从上面的输出信息得出，安装的版本是18.09.2-ce。
 
