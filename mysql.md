@@ -1,3 +1,4 @@
+```
 创建数据库表：
 	create table student (id int not null,name varchar(100) not null ,age int not null,sex varchar not null)
 
@@ -71,3 +72,4 @@ NULL处理：
 
 创建临时表：(退出数据库的时候自动销毁)
 	create temporary table table_name;
+	```
