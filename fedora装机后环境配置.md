@@ -24,7 +24,7 @@
   #### 添加docker用户组
     sudo groupadd docekr
   #### c.将登陆用户加入到docker用户组中
-    sudo gpasswd add -a ${USER} docker
+    sudo gpasswd  -a ${USER} docker
   #### d.更新用户组
     newgrp docker
   #### e.重启docker
