@@ -14,4 +14,9 @@
   - [mysql](note/mysql.md)
   
 - git
-  - [git常用指令](note/git-learn.md)  
+  - [git常用指令](note/git-learn.md)
+  
+- golang 
+    - [代码笔记](https://github.com/srlemon/note)
+    - [gorm-gin blog后台开发](https://github.com/srlemon/gorm-gin)    
+    - [go-block](https://github.com/srlemon/go-block)
