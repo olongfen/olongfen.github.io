@@ -1,6 +1,6 @@
 # ***日积月累***
 
-*auth:* ***srlemon*** 
+*author:* ***srlemon*** 
 
 ---
 
