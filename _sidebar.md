@@ -37,5 +37,8 @@
    - [*go mod 指令*](note/gomod.md)
    
 ---
-   
 
+-***```Python```***
+ 
+ ![python](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565583205755&di=89ef4f3c7558ff8f792eedd64911f409&imgtype=0&src=http%3A%2F%2Fpic.kekenet.com%2F2018%2F0107%2F8121515325256.jpg)   
+  - [*python项目环境搭建*](note/python.md)
