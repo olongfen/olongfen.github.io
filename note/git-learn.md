@@ -49,13 +49,18 @@ git push origin master 提交代码
     `git config --global user.name "xxx" `
     `git config --global user.email "xxx@gmail.com"`
     `git config --global credential.help store`
-    查看配置:
+     
+     查看配置:
       `git config --list`
- - 二.  生成密钥对: ` ssh-keygen -t rsa -C 'XXX@gmail.com' `
+
+- 二.  生成密钥对: ` ssh-keygen -t rsa -C 'XXX@gmail.com' `
         一路回车;
+ 
  - 三.  把生成密钥的.pub文件里面的内容添加到github账户的SSH里面
+        
         测试是否有效: `ssh -T git@github.com`
- - 四.  上传项目 
+
+- 四.  上传项目 
  
         1. 首先在github上创建一个空的项目demo
         
