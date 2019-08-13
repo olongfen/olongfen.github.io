@@ -1,3 +1,4 @@
+## git基本命令
 ``` 
 git init 创建仓库
 
@@ -42,3 +43,25 @@ git blame someFile //查看某个文件的每一行的修改记录（）谁在�
 
 git push origin master 提交代码
 ```
+
+## git上传本地项目到github
+ - 一. 绑定用户: 
+    `git config --global user.name "xxx" `
+    `git config --global user.email "xxx@gmail.com"`
+    `git config --global credential.help store`
+    查看配置:
+      `git config --list`
+ - 二.  生成密钥对: ` ssh-keygen -t rsa -C 'XXX@gmail.com' `
+        一路回车;
+ - 三.  把生成密钥的.pub文件里面的内容添加到github账户的SSH里面
+        测试是否有效: `ssh -T git@github.com`
+ - 四.  上传项目   
+        1. 首先在github上创建一个空的项目demo
+        2. 在本地创建demo目录: `mkdir demo && cd demo && echo "# demo " >> README.md`
+        3. 初始化git: `git init`
+        4. 添加当前目录所有文件: `git add . `
+        5. 查看状态： `git status`
+        6. 提交文件: `git commit -m "feat: init project"`
+        7. 关联远程项目: `git remote add origin  https://github.com/srlemon/app.git(这个链接换成你的项目地址) `
+        8. push到远程: `git push -u origin master`
+          
