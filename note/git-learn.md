@@ -47,7 +47,9 @@ git push origin master 提交代码
 ## git上传本地项目到github
  - 一. 绑定用户: 
     `git config --global user.name "xxx" `
+    
     `git config --global user.email "xxx@gmail.com"`
+    
     `git config --global credential.help store`
      
      查看配置:
