@@ -152,4 +152,164 @@ func main() {//
 }
 
 ```    
-  
+
+- 基本类型运用
+
+rune int32 的别名，代表一个Unicode码，用UTF-8 进行编码
+```go
+/*
+rune 类型使用
+例如需要遍 历字符串中的字符。可以循环每个字节（仅在使用US ASCII 编码字符串时与字符等价， 而它们在Go 中不存在！）。
+因此为了获得实际的字符，需要使用rune 类型。
+string rune byte 的关系
+在Go当中 string底层是用byte数组存的，并且是不可以改变的*/
+package main
+import "fmt"
+func main(){
+	fmt.Println(len("Golang学习"))
+	fmt.Println(len([]rune("Golang学习")))
+}
+// 输出 12 , 8
+```  
+
+数组: 是同一种数据类型的固定长度的序列
+
+```go
+/*
+遍历数组之前判断数组的长度,不然则触发访问越界会panic
+*/
+package main
+import "fmt"
+func main() {
+	var arr1 = [5] string{2:"hello",4:"golang"} // 定义数组长度为5,存类型为string的一维数组,然后给第三个index和第五个index赋值,不输入index默认从0开始
+	for i,v:=range arr1{
+		fmt.Println(i,v) // 0 ;1 ; 2 hello; 3 ;4 golang
+	}
+	var arr2 = [5]string{3:"go","hello",1:"one","two"}
+	// 这里第四个索引会赋值go,下一个没有写索引,会自动给第五个index赋值,后面从第二个索引开始,自动给第三个赋值赋值
+    // TODO 如果这里把1换成2,会报错
+    fmt.Println(arr2)
+	// 多维数组原理与此类似
+}
+
+```
+
+类型转换:
+
+会用到golang的 strconv包,具体使用方式这里不说明了,教程一大把
+
+
+引用类型: 指针、slice、map、chan等
+
+切片：切片是数组的一个引用，因此切片是引用类型。但自身是结构体，值拷贝传递，切片可以无限扩展
+```go
+package main
+import "fmt"
+func main(){
+	// 这样定义的切片不能继续扩展了
+	var arr = [...]int{1,2,3,4,5,6,7,8,9,10}
+	fmt.Println(arr[0:10])
+	// 可以继续扩展的定义 
+	// (1) var arr = []int{}
+	// (2) var arr = make([]int,10)
+}
+
+```
+
+容器Map: 引用类型，哈希表。一堆键值对的未排序集合
+
+
+```go
+package main
+import "fmt"
+func main(){
+	var data = map[string]int{}
+	data["hello"] = 1
+	
+	// 创建了一个键类型为string,值类型为int的map
+	m1 := make(map[string]int)
+	// 也可以选择是否在创建时指定该map的初始存储能力，如创建了一个初始存储能力为5的map
+	m2 := make(map[string]int, 5)
+    
+	m1["a"] = 1
+	// 判断 key 是否存在。
+    	if val, ok := m1["a"]; !ok {
+    		fmt.Println("map's key is not existence")
+    	}else {
+    		fmt.Println(val)
+    	}
+	m2["b"] = 2
+	fmt.Printf("局部变量 map m1 : %v\n", m1)
+	fmt.Printf("局部变量 map m2 : %v\n", m2)
+}
+
+```
+
+管道Channel: 
+    
+     1. 类似unix中管道（pipe）
+     2. 先进先出
+     3. 线程安全，多个goroutine同时访问，不需要加锁
+     4. channel是有类型的，一个整数的channel只能存放整数
+     
+```go
+package main
+import "fmt"
+func main(){
+	var(
+		// 无缓冲
+		// chan1 = make(chan string)
+		// 有缓冲
+		chan2 = make(chan int,1)
+	)
+	// 无缓冲： 不仅仅是向 chan1 通道放 1，而是一直要等有别的携程 <-chan1 接手了这个参数，那么chan1<-1才会继续下去，要不然就一直阻塞着
+	// 有缓冲： chan2<-1 则不会阻塞，因为缓冲大小是1(其实是缓冲大小为0)，只有当放第二个值的时候，第一个还没被人拿走，这时候才会阻塞
+	chan2 <- 98
+    	if v, ok := <-chan2; ok {
+    		// 读取之后缓存的数据被清除
+    		fmt.Println(v)
+    	}
+    
+    	// 写如10个数据到缓冲区
+    	for i := 0; i < 10; i++ {
+    		chan2 <- i
+    	}
+    	// 再写入数据
+    	chan2 <- 9898
+    	for v := range chan2 {
+    		fmt.Println(v)
+    		// 这里输入chan里面的任何一个value
+    		if v == 9 {
+    			// 关闭管道,不关闭会报错
+    			close(chan2)
+    		}
+    	}
+    	// channel关闭后，就不能取出数据了
+}
+```     
+
+- 结构体 struct
+
+```go
+package main
+
+import "fmt"
+
+type Student struct{
+	Name string // 姓名
+	Age int // 年龄
+	Id string // 学号
+	Class string // 班级
+}
+
+func main(){
+	// new 一个地址
+	var s = new(Student)
+	s.Name = "詹姆斯"
+	s.Age = 35
+	s.Id = "23"
+	s.Class = "湖人"
+	
+	fmt.Println(s)
+}
+```
