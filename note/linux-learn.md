@@ -89,3 +89,13 @@
             -G 用户组，用户组 指定用户所属的附加组。
             -s Shell文件 指定用户的登录Shell。
             -u 用户号 指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号。
+
+- 配置服务器
+       ` sudo vim /etc/hosts 
+         添加： 服务器地址 命名(192.168.6.6 test.serve) 
+         vim ~/.ssh/config
+         添加： Host test.serve 
+               Port 8080
+         ssh-agent      
+         ssh-copy-id     
+       `
