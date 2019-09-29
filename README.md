@@ -10,7 +10,7 @@
 
 ---
 
-## 2. [sorm文档](https://srlemon.github.io/sorm/)
+## 2. [go-sorm文档](https://srlemon.github.io/sorm/)
 
 ---
 
@@ -19,3 +19,5 @@
 ---
 ## 4. [golang开源框架大全](https://github.com/jobbole/awesome-go-cn)
 
+---
+## 5.[golang自动生成身份证信息](https://github.com/srlemon/gen-id)
