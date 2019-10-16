@@ -105,4 +105,5 @@
       搜索 forward-socks5
       改这一行为 forward-socks5 / 127.0.0.1：1080 .
       在这一行上面加入 listen-addr 0.0.0.0:8118  
+      sudo systemctl restart privoxy.service
     `      
