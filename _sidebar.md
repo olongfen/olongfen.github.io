@@ -1,7 +1,8 @@
-- ***```Fedora```***
+- ***```Linux```***
 
   ![fedora](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565172280202&di=d442fea5d98de660550f75591bd75462&imgtype=0&src=http%3A%2F%2Fnews.mydrivers.com%2FImg%2F20100813%2F04223968.png)
   - [*装机安装环境配置*](note/fedora装机后环境配置.md)
+  - [*linux操作笔记*](note/linux-learn.md)
 
 ---
 

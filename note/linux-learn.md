@@ -100,7 +100,8 @@
          ssh-copy-id     
        `
 - privoxy 安装使用 
-    ` sudo dnf install privoxy
+    ` 
+      sudo dnf install privoxy
       sudo vim /etc/privoxy/config
       搜索 forward-socks5
       改这一行为 forward-socks5 / 127.0.0.1：1080 .
