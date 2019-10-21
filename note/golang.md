@@ -339,8 +339,7 @@ func main(){
 - 方法
  
  ```golang 
-
-	package main
+package main
 
 import "fmt"
 
