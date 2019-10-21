@@ -313,3 +313,34 @@ func main(){
 	fmt.Println(s)
 }
 ```
+## 函数
+- 定义一个函数
+```golang
+	// 首写字母大写其他包可以访问，反之其他包则不可以访问
+	func addNum(a,b int)(ret int){
+	 ret = a+b
+	return	
+	}
+```
+	a,b 两个为输入参数;ret为函数返回参数;golang函数可以有多个返回值;如果需要传入不定参数（`func (data ...int)int{return}`);
+
+- 函数调用
+	
+	```golang
+	package main
+	
+	func main(){
+		println(addNum(10,20))
+		// out 30
+	}
+	```
+## 方法与接口
+
+- 方法
+```golang 
+
+```
+
+
+- 接口
+	
