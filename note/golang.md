@@ -338,9 +338,140 @@ func main(){
 
 - 方法
 ```golang 
+package main
+
+import "fmt"
+
+// 定义一个接口体
+type Man struct {
+	Age     int    // 年龄
+	Name    string // 姓名
+	IsAdult bool   // 成年:true;false: 未成年
+	// 更多字段以此类推
+	/*
+		.
+		.
+		.
+	*/
+}
+
+// 声明三个方法
+// GetName 获取姓名
+func (p *Man) GetName() (ret string) {
+	return p.Name
+}
+
+// GetAge 获取年龄
+func (p *Man) GetAge() (ret int) {
+	return p.Age
+}
+
+// ViewIsAdult 查看是否成年
+func (p *Man) ViewIsAdult() (ret bool) {
+	if p.Age >= 18 {
+		p.IsAdult = true
+	} else {
+		p.IsAdult = false
+	}
+	return p.IsAdult
+}
+
+func main() {
+
+	// 定义一个 Man 类型
+	var p = &Man{
+		Age:  18,
+		Name: "Tom",
+	}
+	// 执行方法
+	fmt.Println(p.GetAge())
+	fmt.Println(p.GetName())
+	fmt.Println(p.ViewIsAdult())
+	// out 18 Tom true
+
+}
 
 ```
 
 
 - 接口
 	
+```golang
+package main
+
+import "fmt"
+
+// 定义一个接口体
+type Man struct {
+	Age     int    // 年龄
+	Name    string // 姓名
+	IsAdult bool   // 成年:true;false: 未成年
+	// 更多字段以此类推
+	/*
+		.
+		.
+		.
+	*/
+}
+
+type Person interface {
+	Eating() (ret string)   // 吃
+	Playing() (ret string)  // 玩
+	Drinking() (ret string) // 喝
+}
+
+// 声明三个方法
+
+// GetName 获取姓名
+func (p *Man) GetName() (ret string) {
+	return p.Name
+}
+
+// GetAge 获取年龄
+func (p *Man) GetAge() (ret int) {
+	return p.Age
+}
+
+// ViewIsAdult 查看是否成年
+func (p *Man) ViewIsAdult() (ret bool) {
+	if p.Age >= 18 {
+		p.IsAdult = true
+	} else {
+		p.IsAdult = false
+	}
+	return p.IsAdult
+}
+
+// Eating 实现吃的方法
+func (p *Man) Eating() (ret string) {
+	return fmt.Sprintf(`%s is eating apple now`, p.Name)
+}
+
+// Playing 实现玩的方法
+func (p *Man) Playing() (ret string) {
+	return fmt.Sprintf(`%s is playing backball now`, p.Name)
+}
+
+// Drinking 实现喝的方法
+func (p *Man) Drinking() (ret string) {
+	return fmt.Sprintf(`%s is drinking cola now`, p.Name)
+}
+
+func main() {
+
+	// 定义一个 Man 类型
+	var p = &Man{
+		Age:  18,
+		Name: "Tom",
+	}
+	// 定义一个 Person 类型
+	var person Person
+	person = p
+	// 执行方法
+	fmt.Println(person.Drinking())
+	fmt.Println(person.Eating())
+	fmt.Println(person.Playing())
+}
+
+```	
+- 接口可以通过方法来实现，任意一个结构体都可以实现接口里面的方法,但是必须声明全部方法,不然会报错。
