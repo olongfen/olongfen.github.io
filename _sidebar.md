@@ -33,7 +33,7 @@
 
 ![golang](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565172493463&di=ed931a0bc8a462423121a67fb156dce2&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161129%2F130444cd837c49c7bef4239afe39dc2f.jpg)      
    - [*代码笔记*](https://github.com/srlemon/note)
-   - [*golang基础*](note/golang.md)
+   - [*golang快速入门,十分钟了解基础*](note/golang.md)
    - [*gorm-gin blog后台开发*](https://github.com/srlemon/gorm-gin)    
    - [*go mod 指令*](note/gomod.md)
    
