@@ -336,9 +336,11 @@ func main(){
 	```
 ## 方法与接口
 
-- 方法
-```golang 
-package main
+ - 方法
+
+  ```golang 
+
+	package main
 
 import "fmt"
 
@@ -390,10 +392,8 @@ func main() {
 	// out 18 Tom true
 
 }
-
-```
-
-
+  ```
+  
 - 接口
 	
 ```golang
