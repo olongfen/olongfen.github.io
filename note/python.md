@@ -14,7 +14,9 @@
 ## 二.python爬虫亚马逊网站商品信息
 
 - 把爬下来的数据进行分析，生成对应的.xlsx文件，包含商品的价格，星级，图片链接，名称等
+
 ```python
+
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from bs4 import BeautifulSoup
