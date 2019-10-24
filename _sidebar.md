@@ -29,7 +29,7 @@
    - [*golang快速入门,十分钟了解基础*](note/golang.md)
    - [*gorm-gin blog后台开发*](https://github.com/srlemon/gorm-gin)    
    - [*go mod 指令*](note/gomod.md)
-   - [*go tcp长连接开发](note/gotcp.md)
+   - [*go tcp长连接开发*](note/gotcp.md)
    
 ---
 
