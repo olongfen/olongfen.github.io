@@ -180,8 +180,4 @@ if __name__=="__main__":
     # arr = ['https://www.amazon.com/Best-Sellers/zgbs/smart-home/ref=zg_bs_nav_0/139-3807419-5993042', 'https://www.amazon.com/Best-Sellers-Sports-Outdoors/zgbs/sporting-goods/ref=zg_bs_nav_0/139-3807419-5993042', 'https://www.amazon.com/Best-Sellers-Sports-Collectibles/zgbs/sports-collectibles/ref=zg_bs_nav_0/139-3807419-5993042', 'https://www.amazon.com/Best-Sellers-Home-Improvement/zgbs/hi/ref=zg_bs_nav_0/139-3807419-5993042', 'https://www.amazon.com/Best-Sellers-Toys-Games/zgbs/toys-and-games/ref=zg_bs_nav_0/139-3807419-5993042']
     # for u in arr:
     #     GetPageUrl(u)
-    main()
-
-
-
-```
+    main()```
