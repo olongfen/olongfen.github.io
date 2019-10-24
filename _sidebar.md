@@ -35,4 +35,4 @@
 
 - ***```Python```***
 
-  - [python基础操作](note/python.md)
+  - [python笔记](note/python.md)
