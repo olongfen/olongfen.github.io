@@ -8,12 +8,14 @@
 
 ###### 1.  [博客主页](https://srlemon.github.io)
 ---
-
 ###### 2. [go-sorm文档](https://srlemon.github.io/sorm/)
 ---
-
 ###### 3. [互联网免费书籍](https://github.com/ruanyf/free-books)
 ---
 ###### 4. [golang开源框架大全](https://github.com/jobbole/awesome-go-cn)
 ---
 ###### 5.[golang自动生成身份证信息](https://github.com/srlemon/gen-id)
+---
+###### 6.[go语言圣经中文版在线教程](https://github.com/gopl-zh/gopl-zh.github.com)
+---
+###### 7.[个人整理golang文档教材,(提取码：6emu)](https://pan.baidu.com/s/1vatkTa254Fh9ld6dSlGNYg)
