@@ -93,4 +93,21 @@
     导出单张表结构:
         
         mysqldump -u [用户名] -p -d [数据库名] [表名]  >> 表名.sql    
+
+
+- 导入数据            
+    
+    1. 建立空数据库:
+        
+        create database database_name;
+        
+    2. 导入数据
+        
+        方法1:
+            use database_name;
+            source $PWD/database_name.sql;
             
+        方法2:
+        
+            mysql -u [用户名] -p  [数据库名] < 数据库名.sql
+                
