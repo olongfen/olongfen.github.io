@@ -105,6 +105,7 @@
         
         方法1:
             use database_name;
+            
             source $PWD/database_name.sql;
             
         方法2:
