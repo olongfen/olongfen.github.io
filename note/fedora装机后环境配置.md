@@ -33,11 +33,20 @@
  `sudo pip3 install docker-compose`
  ## 安装显卡驱动
  ### 1.添加rpmfusion源
- 到 [rpmfusion官网](https://rpmfusion.org/) 下载release版本的rpm进行安装  \
- 更新源: sudo dnf update
+    到 [rpmfusion官网](https://rpmfusion.org/) 下载release版本的rpm进行安装  \
+    更新源: sudo dnf update \
+    dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
  ### 2.安装显卡驱动
     sudo dnf install akmod-nvidia
- 
+    For recent GeForce/Quadro/Tesla execute:
+        # dnf install akmod-nvidia
+    For Legacy GeForce 400/500 execute:
+        # dnf install xorg-x11-drv-nvidia-390xx akmod-nvidia-390xx
+    For Legacy GeForce 8/9/200/300 execute:
+        # dnf install xorg-x11-drv-nvidia-340xx akmod-nvidia-340xx
+ ### 3.卸载   
+    sudo yum erase kmod-nvidia-PAE nvidia-xconfig xorg-x11-drv-nvidia xorg-x11-drv-nvidia-libs
 ## 安装桌面优化工具
 `sudo dnf install gnome-tweak-tool`
 运行：`./usr/bin/gnome-tweaks`
