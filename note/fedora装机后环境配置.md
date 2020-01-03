@@ -7,7 +7,7 @@
   添加 \
   ` export GOROOT=/data/bin/go ` \ 
   ` export GOPATH=/data/gocode/ ` \
-  ` export PATH=$GOROOT/bin:GOPATH/bin:$PATH  ` \
+  ` export PATH=$GOROOT/bin:$GOPATH/bin:$PATH  ` \
   ` export GO111MODULE=on  `\
   然后执行: ` source ~/.bash_profile`
 ## 安装docker 
@@ -28,7 +28,7 @@
   #### d.更新用户组
     newgrp docker
   #### e.重启docker
-    sudo systemctl restart docekr
+    sudo systemctl restart docker
  ### 4.安装docker-compose
  `sudo pip3 install docker-compose`
  ## 安装显卡驱动
