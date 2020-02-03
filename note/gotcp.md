@@ -12,12 +12,12 @@ server.go
 ```go
 package main
 
-// 运行前 先 go get  github.com/srlemon/note
+// 运行前 先 go get  github.com/olefen/note
 
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/srlemon/note/log"
+	"github.com/olefen/note/log"
 	"net"
 )
 
@@ -129,7 +129,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/srlemon/note/log"
+	"github.com/olefen/note/log"
 	"net"
 	"os"
 )
