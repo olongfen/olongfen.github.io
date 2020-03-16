@@ -30,6 +30,7 @@
    - [gorm-gin blog后台开发](https://github.com/olongfen/gorm-gin)    
    - [go mod 指令](note/gomod.md)
    - [go tcp长连接开发](note/gotcp.md)
+   - [go kafka队列入门笔记](note/go-kafka.md)
    
 ---
 
