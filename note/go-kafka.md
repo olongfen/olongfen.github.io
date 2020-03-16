@@ -159,7 +159,7 @@
     ```
    - 消费者   
         
-    ```golang
+    ```go
        
         package main
         
