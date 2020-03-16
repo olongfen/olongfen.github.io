@@ -3,7 +3,7 @@
 ## kafka docker环境搭建
    - docker-compose.yaml   
     
-    `
+    ```
     version: '3'
     services:
       zoo1:
@@ -48,30 +48,36 @@
         ports:
           - "9000:9000"                               ## 暴露端口
         
-    `
+    ```
    - 执行docker命令
+        
         `
             docker-compose up -d
         `
    - 进入docker容器中
+        
         `
             docker exec -it kafka1 /bin/bash
         `    
    -  创建topic
+        
         `   
             kafka.topics.sh --create --topic topic001 --partitions 1 --zookeeper zookeeper:2181  --replication-factor 1
         `
    - 获取topic
+        
         `
             kafka-topics.sh --list --zookeeper zookeeper:2181
         `    
    - 进入kafka生产者    
+        
         `
             kafka-console-producer.sh \
             --topic topic001 \
             --broker-list kafka1:9092,kafka2:9092
         `
    - 另外开启一个终端进入docker容器，进入kafka消费者    
+        
         `
             kafka-console-producer.sh \
             --topic topic001 \
@@ -153,7 +159,8 @@
     ```
    - 消费者   
         
-    `golang
+    ```golang
+       
         package main
         
         import (
