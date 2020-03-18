@@ -89,19 +89,19 @@
     - _添加镜像源：_ `vim /etc/docker/daemon.json`
         
         写入：  
-        `{
-           "exec-opts": ["native.cgroupdriver=systemd"],
-           "registry-mirrors" : [
-               "http://registry.docker-cn.com",
-               "http://docker.mirrors.ustc.edu.cn",
-               "http://hub-mirror.c.163.com"
-             ],
-           "insecure-registries" : [
-               "registry.docker-cn.com",
-               "docker.mirrors.ustc.edu.cn"
-             ],
-           "debug" : true,
-           "experimental" : true
+            `{
+                "exec-opts": ["native.cgroupdriver=systemd"],
+                "registry-mirrors" : [
+                    "http://registry.docker-cn.com",
+                    "http://docker.mirrors.ustc.edu.cn",
+                    "http://hub-mirror.c.163.com"
+                  ],
+                "insecure-registries" : [
+                    "registry.docker-cn.com",
+                    "docker.mirrors.ustc.edu.cn"
+                  ],
+                "debug" : true,
+                "experimental" : true
               }`
     - _重启docker：_ `systemctl restrt docker && systemctl enable docker`
 
@@ -149,6 +149,7 @@
                   --discovery-token-ca-cert-hash sha256:82655091bba3656f3a3061ef66df979af046837cbcb78e4a839d2211634d4552 `
       
       -  _将当前用户配置为集群管理员（如果不配置，下次连接时会无法使用kubectl）,执行这三条命令：_ 
+            
             `mkdir -p $HOME/.kube
              cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
              chown $(id -u):$(id -g) $HOME/.kube/config`  
@@ -157,6 +158,5 @@
              
     - _Node:_
        
-       _加入节点:_ 
-       `kubeadm join 192.168.136.128:6443 --token 0s36r8.14ngpdohrkd12gn4 --discovery-token-ca-cert-hash sha256:82655091bba3656f3a3061ef66df979af046837cbcb78e4a839d2211634d4552`
+       _加入节点:_  `kubeadm join 192.168.136.128:6443 --token 0s36r8.14ngpdohrkd12gn4 --discovery-token-ca-cert-hash sha256:82655091bba3656f3a3061ef66df979af046837cbcb78e4a839d2211634d4552`
                         
