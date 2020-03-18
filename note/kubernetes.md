@@ -160,4 +160,19 @@
     - _Node:_
        
        _加入节点:_  `kubeadm join 192.168.136.128:6443 --token 0s36r8.14ngpdohrkd12gn4 --discovery-token-ca-cert-hash sha256:82655091bba3656f3a3061ef66df979af046837cbcb78e4a839d2211634d4552`
-                        
+              
+- **安装kuboard**
+    
+    - _install_
+    ``` 
+    kubectl apply -f https://kuboard.cn/install-script/kuboard.yaml
+    
+    kubectl apply -f https://addons.kuboard.cn/metrics-server/0.3.6/metrics-server.yaml
+    ```
+    
+    - _查看运行状态:_  `kubectl get pods -l k8s.eip.work/name=kuboard -n kube-system`
+    
+    - _获取Token:_ `kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep kuboard-user | awk '{print $1}')`
+    
+    
+    `然后访问您集群中任意节点的 32567 端口（http://any-of-your-node-ip:32567） ，即可打开 Kuboard 界面，比如我的 Node 节点 IP 为：http://192.168.136.130:32567,然后输入生成的token就可以登入了`
