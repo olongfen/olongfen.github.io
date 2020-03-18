@@ -109,17 +109,16 @@
     
     -  _使用阿里云的 yum 仓库镜像:_
         
-        `
-        cat <<EOF > /etc/yum.repos.d/kubernetes.repo    
-        [kubernetes]    
-        name=Kubernetes 
-        baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
-        enabled=1   
-        gpgcheck=1  
-        repo_gpgcheck=1 
-        gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg 
-        https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg   
-        EOF
+        ` cat <<EOF > /etc/yum.repos.d/kubernetes.repo    
+          [kubernetes]    
+          name=Kubernetes 
+          baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+          enabled=1   
+          gpgcheck=1  
+          repo_gpgcheck=1 
+          gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg 
+          https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg   
+          EOF
         `             
     - _安装k8s：_ `yum install -y kubeadm-1.17.3-0 kubelet-1.17.3-0 kubectl-1.17.3-0`
     - _设置:_ `vim /etc/sysconfig/kubelet #插入: KUBELET_EXTRA_ARGS="--cgroup-driver=systemd"`
