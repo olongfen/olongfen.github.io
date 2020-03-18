@@ -9,8 +9,13 @@
  - [docker基础安装操作指令](note/docker.md)
  - [docker-daemon.json字段详解](note/daemon.json.md)
  
- ---
- 
+---
+
+- ***``Kubernets```***
+  - [k8s集群搭建笔记](note/kubernetes.md)
+  
+--- 
+
 - ***```MYSQL```***
 
   - [mysql基本操作指令](note/mysql.md)
