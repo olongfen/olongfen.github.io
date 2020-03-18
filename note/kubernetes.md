@@ -69,8 +69,7 @@
 - **开启 IPVS**
     
     - _安装 ipset 及 ipvsadm:_ ` yum install -y ipset ipvsadm`
-    - _添加需要加载的模块:_ 
-                `cat > /etc/sysconfig/modules/ipvs.modules << EOF #!/bin/bash
+    - _添加需要加载的模块:_  `cat > /etc/sysconfig/modules/ipvs.modules << EOF #!/bin/bash
                   modprobe -- ip_vs
                   modprobe -- ip_vs_rr
                   modprobe -- ip_vs_wrr
@@ -88,8 +87,7 @@
     - _安装docker：_ `yum install docker-ce-18.06.3.ce-3.el7` 
     - _添加镜像源：_ `vim /etc/docker/daemon.json`
         
-        写入：  
-            `{
+        写入：  `{
                 "exec-opts": ["native.cgroupdriver=systemd"],
                 "registry-mirrors" : [
                     "http://registry.docker-cn.com",
