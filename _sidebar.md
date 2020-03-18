@@ -11,7 +11,7 @@
  
 ---
 
-- ***``Kubernets```***
+- ***```Kubernetes```***
   - [k8s集群搭建笔记](note/kubernetes.md)
   
 --- 
