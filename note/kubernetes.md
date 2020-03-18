@@ -121,9 +121,7 @@
         EOF
         `             
     - _安装k8s：_ `yum install -y kubeadm-1.17.3-0 kubelet-1.17.3-0 kubectl-1.17.3-0`
-    - _设置:_ `vim /etc/sysconfig/kubelet
-            插入: KUBELET_EXTRA_ARGS="--cgroup-driver=systemd"       
-    `
+    - _设置:_ `vim /etc/sysconfig/kubelet #插入: KUBELET_EXTRA_ARGS="--cgroup-driver=systemd"`
     - _开机自动启动:_ `systemctl enable kubelet`  
 
  ` 上面命令三个机器都要执行`     
