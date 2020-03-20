@@ -149,7 +149,7 @@
      
     - _Master:_
       
-      - _初始化_: `kubeadm init --kubernetes-version=v1.17.3 --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.136.128 --apiserver-cert-extra-sans=192.168.136.128,master   --image-repository registry.aliyuncs.com/google_containers` 
+      - _初始化_: `kubeadm init --kubernetes-version=v1.17.3 --pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=192.168.136.128 --apiserver-cert-extra-sans=192.168.136.128,master   --image-repository registry.aliyuncs.com/google_containers` 
       
       - _初始化成功后出现_:
             
@@ -175,8 +175,38 @@
              chown $(id -u):$(id -g) $HOME/.kube/config
             ``` 
      
-      - _配置网络:_ `kubectl apply -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml`
-             
+      - _配置网络(fw网络下可以执行这条):_ `kubectl apply -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml`
+      
+      - _配置网络(墙内网络请执行这里)_
+                
+                - 下载 calico docker 镜像:  wget https://docs.projectcalico.org/v3.9/manifests/calico.yaml
+                
+                - 查看需要哪些 docker 镜像: cat calico.yaml | grep image
+                              image: calico/cni:v3.9.5
+                              image: calico/cni:v3.9.5
+                              image: calico/pod2daemon-flexvol:v3.9.5
+                              image: calico/node:v3.9.5
+                              image: calico/kube-controllers:v3.9.5
+                - docker pull 上面的镜像
+                
+                - 修改 calico 资源清单文件:
+                            # 由于 calico 自身网络发现机制有问题，比如集群重启后网络组件会有问题，这里修改下发现机制，添加第 607 和 608 行
+                            604             # Auto-detect the BGP IP address.
+                            605             - name: IP
+                            606               value: "autodetect"
+                            607             - name: IP_AUTODETECTION_METHOD
+                            608               value: "interface=enp0s3.*"
+                
+                           `注意 interface 后面的网卡名字，我这里是用 VirtualBox 创建的虚拟机，网卡名字叫做 enp0s3 （可以使用 ip a 命令查看）`
+                
+                - 修改 kubeadm 初始化时指定的 pod-network-cidr:   
+                    
+                    621             - name: CALICO_IPV4POOL_CIDR
+                    622               value: "172.16.0.0/16"       
+                
+                - 应用 calico 资源清单文件:  kubectl apply -f calico.yaml
+                           
+                   
     - _Node:_
        
        _加入节点:_  `kubeadm join 192.168.136.128:6443 --token 0s36r8.14ngpdohrkd12gn4 --discovery-token-ca-cert-hash sha256:82655091bba3656f3a3061ef66df979af046837cbcb78e4a839d2211634d4552`
