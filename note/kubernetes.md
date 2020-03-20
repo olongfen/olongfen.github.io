@@ -31,7 +31,7 @@
       
     _三台机器都执行,关闭 swap 分区，否则kubelet 会启动失败(可以设置 kubelet 启动参数 --fail-swap-on 为 false 关闭 swap 检查)：_
     - `swapoff -a`
-    - `vim /etc/fsrab # 
+    - `vim /etc/fstab # 
     注释这一行/dev/mapper/centos-swap swap                    swap    defaults        0 0`
 
 - **SELINUX 设置**
@@ -56,20 +56,39 @@
 
 - **添加网桥过滤**
     
-    - _添加网桥过滤及地址转发_: `cat > /etc/sysctl.d/k8s.conf << EOF
-       net.bridge.bridge-nf-call-ip6tables = 1
-       net.bridge.bridge-nf-call-iptables = 1
-       net.ipv4.ip_forward = 1
-       vm.swappiness = 0
-       EOF`
+    - _添加网桥过滤及地址转发_: 
+    
+        `cat <<EOF > /etc/sysctl.d/k8s.conf 
+          net.bridge.bridge-nf-call-ip6tables = 1
+          net.bridge.bridge-nf-call-iptables = 1
+          net.ipv4.ip_forward = 1
+          vm.swappiness = 0
+         EOF
+        `
     - _加载 br_netfilter 模块:_ `modprobe br_netfilter`
     - _查看是否加载:_ `lsmod | grep br_netfilter`
     - _加载网桥过滤配置文件:_ `sysctl -p /etc/sysctl.d/k8s.conf`       
 
+- **服务器换阿里源**
+    - _备份源：_ `mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak`
+    
+    - _修改OS源为阿里的仓库:_ `curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo`
+    
+    - _导入阿里公钥_ 
+        
+        `
+            wget  https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+            rpm --import yum-key.gpg
+            wget https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+            rpm --import rpm-package-key.gpg
+        `
+    - _执行_: `yum clean all && yum makecache`    
 - **开启 IPVS**
     
     - _安装 ipset 及 ipvsadm:_ ` yum install -y ipset ipvsadm`
-    - _添加需要加载的模块:_  `cat > /etc/sysconfig/modules/ipvs.modules << EOF #!/bin/bash
+    - _添加需要加载的模块(复制命令记得去掉空格):_  
+                ` cat <<EOF > /etc/sysconfig/modules/ipvs.modules  
+                  #!/bin/bash
                   modprobe -- ip_vs
                   modprobe -- ip_vs_rr
                   modprobe -- ip_vs_wrr
@@ -78,10 +97,9 @@
                   EOF`
     - _授权、运行、检查是否加载:_ `chmod +x /etc/sysconfig/modules/ipvs.modules && bash /etc/sysconfig/modules/ipvs.modules && lsmod | grep -e ip_vs -e nf_conntrack_ipv4`              
 
+
 - **安装Docker**
-    
-    - _备份源：_ `mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak`
-    - _修改OS源为阿里的仓库:_ `curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo`
+   
     - _安装依赖项:_ `yum install -y yum-utils device-mapper-persistent-data lvm2`
     - _添加docker源为阿里源:_ `yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo`
     - _安装docker：_ `yum install docker-ce-18.06.3.ce-3.el7` 
@@ -101,35 +119,34 @@
                 "debug" : true,
                 "experimental" : true
               }`
-    - _重启docker：_ `systemctl restrt docker && systemctl enable docker`
+    - _重启docker：_ `systemctl restart docker && systemctl enable docker`
 
 - **安装k8s**
     
-    -  _使用阿里云的 yum 仓库镜像:_
+    -  _使用阿里云的 yum 仓库镜像(复制命令记得去掉空格):_
         
-        ` cat <<EOF > /etc/yum.repos.d/kubernetes.repo    
-          [kubernetes]    
-          name=Kubernetes 
-          baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
-          enabled=1   
-          gpgcheck=1  
-          repo_gpgcheck=1 
-          gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg 
-          https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg   
-          EOF
+        `cat <<EOF > /etc/yum.repos.d/kubernetes.repo    
+         [kubernetes]    
+         name=Kubernetes 
+         baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+         enabled=1   
+         gpgcheck=1  
+         repo_gpgcheck=1 
+         gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg 
+         https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg   
+         EOF
         `             
     - _安装k8s：_ `yum install -y kubeadm-1.17.3-0 kubelet-1.17.3-0 kubectl-1.17.3-0`
     - _设置:_ `vim /etc/sysconfig/kubelet #插入: KUBELET_EXTRA_ARGS="--cgroup-driver=systemd"`
     - _开机自动启动:_ `systemctl enable kubelet`  
 
  ` 上面命令三个机器都要执行`     
- 
+ [关闭防火墙到安装完k8s脚本](../data/k8s_install.sh)
 - **部署k8s集群**
      
     - _Master:_
       
-      - _初始化_: `kubeadm init --kubernetes-version=v1.17.3 --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.136.128 --apiserver-cert-extra-sans=192.168.136.128,master   --image-repository registry.aliyuncs.com/google_containers
-` 
+      - _初始化_: `kubeadm init --kubernetes-version=v1.17.3 --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.136.128 --apiserver-cert-extra-sans=192.168.136.128,master   --image-repository registry.aliyuncs.com/google_containers` 
       
       - _初始化成功后出现_:
             
