@@ -141,7 +141,7 @@
     - _开机自动启动:_ `systemctl enable kubelet`  
 
  ` 上面命令三个机器都要执行`     
- [关闭防火墙到安装完k8s脚本](../data/k8s_install.sh)
+ ![关闭防火墙到安装完k8s脚本](../data/k8s_install.sh)
 - **部署k8s集群**
      
     - _Master:_
