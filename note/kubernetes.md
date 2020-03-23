@@ -105,7 +105,9 @@
     - _安装docker：_ `yum install docker-ce-18.06.3.ce-3.el7` 
     - _添加镜像源：_ `vim /etc/docker/daemon.json`
         
-        写入：  `{
+        写入： 
+        `
+        {
                 "exec-opts": ["native.cgroupdriver=systemd"],
                 "registry-mirrors" : [
                     "http://registry.docker-cn.com",
@@ -118,7 +120,8 @@
                   ],
                 "debug" : true,
                 "experimental" : true
-              }`
+              }
+         `
     - _重启docker：_ `systemctl restart docker && systemctl enable docker`
 
 - **安装k8s**
@@ -141,7 +144,7 @@
     - _开机自动启动:_ `systemctl enable kubelet`  
 
  ` 上面命令三个机器都要执行`     
- [关闭防火墙到安装完k8s脚本](note/data/k8s_install.sh)
+ [关闭防火墙到安装完k8s脚本](https://github.com/olongfen/olongfen.github.io/note/data/k8s_install.sh)
  
  `重启服务器`
 
