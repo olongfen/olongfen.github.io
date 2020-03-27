@@ -29,6 +29,10 @@
     newgrp docker
   #### e.重启docker
     sudo systemctl restart docker
+  #### fedora31 遇到错误 》》》cgroups: cgroup mountpoint does not exist: unknown
+     `执行下面两句命令解决问题`
+     sudo mkdir /sys/fs/cgroup/systemd
+     sudo mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd      
  ### 4.安装docker-compose
  `sudo pip3 install docker-compose`
  ## 安装显卡驱动
