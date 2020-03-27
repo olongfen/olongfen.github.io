@@ -178,9 +178,8 @@
              chown $(id -u):$(id -g) $HOME/.kube/config
             ``` 
      
-      - _配置网络(fw网络下可以执行这条):_ `kubectl apply -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml`
       
-      - _配置网络(墙内网络请执行这里)_
+      - _配置网络_
                 
                 - 下载 calico docker 镜像:  wget https://docs.projectcalico.org/v3.9/manifests/calico.yaml
                 
