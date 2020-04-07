@@ -30,7 +30,7 @@
   
 - ***```Golang```***
 
-   - [golang time包处理](golang/time.md) 
+   - [golang time包](golang/time.md) 
    - [golang快速入门,十分钟了解基础](note/golang.md)
    - [gorm-gin blog后台开发](https://github.com/olongfen/gorm-gin)    
    - [go mod 指令](note/gomod.md)
