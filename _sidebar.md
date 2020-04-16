@@ -1,6 +1,7 @@
 - ***```Linux```***
   - [装机安装环境配置](note/fedora装机后环境配置.md)
   - [linux操作笔记](note/linux-learn.md)
+  - [linux常用命令](linux/often_use_common.md)
 
 ---
 
