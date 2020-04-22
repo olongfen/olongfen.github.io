@@ -71,3 +71,9 @@ NetSpeed 显示网速 \
 `cd X-Arc-White` \
 sudo mv -r X-Arc-White /usr/share/themes/
 ### 安装图标也是这样的方法，但是文件要移到/usr/share/icons目录下
+
+### 安装protobuf脚本 
+[脚本](https://github.com/olongfen/olongfen.github.io/blob/master/data/install_protobuf.sh)
+
+### 安装 VirtualBox脚本
+[脚本](https://github.com/olongfen/olongfen.github.io/blob/master/data/virtualBox_install.sh)
