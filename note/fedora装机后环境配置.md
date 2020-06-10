@@ -82,7 +82,22 @@ sudo mv -r X-Arc-White /usr/share/themes/
 [脚本](https://github.com/olongfen/olongfen.github.io/blob/master/data/install_grpc.sh)
 
 ### 安装Q2ray ui端
-` dnf config-manager --add-repo https://download.opensuse.org/repositories/home:zzndb:Qv2ray/Fedora_31/home:zzndb:Qv2ray.repo
-  
-  dnf install Qv2ray
-`
+For Fedora Rawhide run the following as root:
+
+dnf config-manager --add-repo https://download.opensuse.org/repositories/home:zzndb:Qv2ray/Fedora_Rawhide/home:zzndb:Qv2ray.repo
+dnf install Qv2ray
+
+For Fedora 32 run the following as root:
+
+dnf config-manager --add-repo https://download.opensuse.org/repositories/home:zzndb:Qv2ray/Fedora_32/home:zzndb:Qv2ray.repo
+dnf install Qv2ray
+
+For Fedora 31 run the following as root:
+
+dnf config-manager --add-repo https://download.opensuse.org/repositories/home:zzndb:Qv2ray/Fedora_31/home:zzndb:Qv2ray.repo
+dnf install Qv2ray
+
+For Fedora 30 run the following as root:
+
+dnf config-manager --add-repo https://download.opensuse.org/repositories/home:zzndb:Qv2ray/Fedora_30/home:zzndb:Qv2ray.repo
+dnf install Qv2ray
