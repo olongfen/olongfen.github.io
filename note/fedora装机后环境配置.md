@@ -78,6 +78,9 @@ sudo mv -r X-Arc-White /usr/share/themes/
 ### 安装 VirtualBox脚本
 [脚本](https://github.com/olongfen/olongfen.github.io/blob/master/data/virtualBox_install.sh)
 
+### 安装 grpc 环境
+[脚本](https://github.com/olongfen/olongfen.github.io/blob/master/data/grpc_install.sh)
+
 ### 安装Q2ray ui端
 ` dnf config-manager --add-repo https://download.opensuse.org/repositories/home:zzndb:Qv2ray/Fedora_31/home:zzndb:Qv2ray.repo
   
