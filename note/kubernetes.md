@@ -31,18 +31,23 @@ EOF`
    
 ## 5 **关闭swap分区**
       
-    _三台机器都执行,关闭 swap 分区，否则kubelet 会启动失败(可以设置 kubelet 启动参数 --fail-swap-on 为 false 关闭 swap 检查)：_
+   - _三台机器都执行,关闭 swap 分区，否则kubelet 会启动失败(可以设置 kubelet 启动参数 --fail-swap-on 为 false 关闭 swap 检查)：_
     `swapoff -a && sed -i 's/^\/dev\/mapper\/centos-swap/#&/'  /etc/fstab`
 
 
 ## 6 **设置系统时区&&时间同步**
     
-  _设置系统时区:_ `timedatectl set-timezone Asia/Shanghai`          
-  _设置时钟同步:_ `systemctl enable chronyd && systemctl start chronyd`
-  _查看同步状态:_ `timedatectl status`
-  _将当前的 UTC 时间写入硬件时钟:_ `timedatectl set-local-rtc 0`
-  _重启依赖于系统时间的服务:_   `systemctl restart rsyslog && systemctl restart crond`
-  - **关闭无关服务**:(可选关闭) `systemctl stop postfix && systemctl disable postfix`
+  - _设置系统时区:_ `timedatectl set-timezone Asia/Shanghai`        
+    
+  - _设置时钟同步:_ `systemctl enable chronyd && systemctl start chronyd`
+  
+  - _查看同步状态:_ `timedatectl status`
+  
+  - _将当前的 UTC 时间写入硬件时钟:_ `timedatectl set-local-rtc 0`
+  
+  - _重启依赖于系统时间的服务:_   `systemctl restart rsyslog && systemctl restart crond`
+  
+  - - **关闭无关服务**:(可选关闭) `systemctl stop postfix && systemctl disable postfix`
 
 ## 7 **添加网桥过滤**
     
@@ -80,7 +85,7 @@ EOF`
    - _授权、运行、检查是否加载:_ `chmod +x /etc/sysconfig/modules/ipvs.modules && bash /etc/sysconfig/modules/ipvs.modules && lsmod | grep -e ip_vs -e nf_conntrack_ipv4`              
 
 
-- **安装Docker**
+## 10 **安装Docker**
    
     - _安装依赖项:_ `yum install -y yum-utils device-mapper-persistent-data lvm2`
     - _添加docker源为阿里源:_ `yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo`
@@ -98,7 +103,7 @@ EOF`
 EOF`
    - _重启docker：_ `systemctl restart docker && systemctl enable docker`
 
-## 10 **安装k8s**
+## 11 **安装k8s**
     
    -  _使用阿里云的 yum 仓库镜像(复制命令记得去掉空格):_
 
@@ -119,10 +124,11 @@ EOF
 
  ` 上面命令三个机器都要执行`     
  [关闭防火墙到安装完k8s脚本](https://github.com/olongfen/olongfen.github.io/blob/master/data/k8s_install.sh)
+ [升级版脚本](https://github.com/olongfen/olongfen.github.io/blob/master/data/k8s_install_pro.sh)
  
  `重启服务器`
 
-## 11 **部署k8s集群**
+## 12 **部署k8s集群**
      
     - _Master:_
       
@@ -187,18 +193,17 @@ EOF
        
        _加入节点:_  `kubeadm join 192.168.136.128:6443 --token 0s36r8.14ngpdohrkd12gn4 --discovery-token-ca-cert-hash sha256:82655091bba3656f3a3061ef66df979af046837cbcb78e4a839d2211634d4552`
               
-# 12 **安装kuboard**
+# 13 **安装kuboard**
     
-    - _install_
-    ``` 
-    kubectl apply -f https://kuboard.cn/install-script/kuboard.yaml
+  - _install_
     
-    kubectl apply -f https://addons.kuboard.cn/metrics-server/0.3.6/metrics-server.yaml
-    ```
+    ` kubectl apply -f https://kuboard.cn/install-script/kuboard.yaml `
     
-    - _查看运行状态:_  `kubectl get pods -l k8s.eip.work/name=kuboard -n kube-system`
+    `kubectl apply -f https://addons.kuboard.cn/metrics-server/0.3.6/metrics-server.yaml`
     
-    - _获取Token:_ `kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep kuboard-user | awk '{print $1}')`
+  - _查看运行状态:_  `kubectl get pods -l k8s.eip.work/name=kuboard -n kube-system`
+    
+  - _获取Token:_ ` kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep kuboard-user | awk '{print $1}')`
     
     
-    `然后访问您集群中任意节点的 32567 端口（http://any-of-your-node-ip:32567） ，即可打开 Kuboard 界面，比如我的 Node 节点 IP 为：http://192.168.136.130:32567,然后输入生成的token就可以登入了`
+  `然后访问您集群中任意节点的 32567 端口（http://any-of-your-node-ip:32567） ，即可打开 Kuboard 界面，比如我的 Node 节点 IP 为：http://192.168.136.130:32567,然后输入生成的token就可以登入了`
