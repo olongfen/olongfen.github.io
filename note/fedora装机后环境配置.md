@@ -30,9 +30,9 @@
   #### e.重启docker
     sudo systemctl restart docker
   #### fedora31 遇到错误 》》》cgroups: cgroup mountpoint does not exist: unknown
-     `执行下面两句命令解决问题`
-     sudo mkdir /sys/fs/cgroup/systemd
-     sudo mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd      
+         $ sudo dnf install -y grubby
+         $ sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+         $ sudo reboot   
  ### 4.安装docker-compose
  `sudo pip3 install docker-compose`
  ## 安装显卡驱动
@@ -83,3 +83,9 @@ sudo mv -r X-Arc-White /usr/share/themes/
 
 ### 安装Q2ray ui端
 [选择指令](https://github.com/olongfen/olongfen.github.io/blob/master/data/Qv2ray)
+
+### 前端项目
+  - question 
+     `Error: ENOSPC: System limit for number of file watchers reached, watch '/home/foldername/abcrypto/static`
+  - answer
+      `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`   
