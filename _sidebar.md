@@ -44,5 +44,6 @@
 - ***```Python```***
 
   - [python笔记](note/python.md)
+  - [python爬去wti原油k线数据](python/wti_day.md)
 
 - [docker-compose](https://github.com/olongfen/docker-compose.yaml)
