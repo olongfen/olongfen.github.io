@@ -22,6 +22,14 @@
   - [mysql基本操作指令](note/mysql.md)
  
 ---
+
+--- 
+
+- ***```postgresql```***
+
+  - [postgresql常用语句](postgresql/note.md)
+ 
+---
   
 - ***```git```***
 
