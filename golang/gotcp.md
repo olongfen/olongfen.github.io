@@ -12,7 +12,7 @@ server.go
 ```go
 package main
 
-// 运行前 先 go get  github.com/olongfen/note
+// 运行前 先 go get  github.com/olongfen/docker
 
 import (
 	"encoding/json"
