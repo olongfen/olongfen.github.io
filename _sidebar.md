@@ -40,7 +40,7 @@
 ---
   
 - ***```Golang```***
-
+   - [golang算法笔记](golang/algorithm.md)
    - [golang time包](golang/time.md) 
    - [golang快速入门,十分钟了解基础](golang/golang.md)
    - [gorm-gin blog后台开发](https://github.com/olongfen/gorm-gin)    
