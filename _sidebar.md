@@ -47,6 +47,7 @@
    - [go mod 指令](golang/gomod.md)
    - [go tcp长连接开发](golang/gotcp.md)
    - [go kafka队列入门笔记](golang/go-kafka.md)
+   - [go test demo](golang/golang_test.md)  
    - [代码笔记](https://github.com/olongfen/note)
    
 ---
