@@ -8,6 +8,9 @@
 
 - 直接开干
   - `简单的测试加减乘除>>>main.go`
+  
+
+
   ```go
   package demo
   
@@ -34,7 +37,10 @@
   ```
 
   - `main_test.go`
-  ```go
+  
+
+
+```go
   package demo
   import (
 	. "github.com/smartystreets/goconvey/convey"
@@ -72,6 +78,6 @@
     So(res, ShouldEqual, 8)
     })
   }
-  ```
+ ```
   
 `执行：go test . `
