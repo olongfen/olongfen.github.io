@@ -49,6 +49,7 @@
    - [go kafka队列入门笔记](golang/go-kafka.md)
    - [go test demo](golang/golang_test.md)  
    - [代码笔记](https://github.com/olongfen/note)
+   - [领域驱动例子](golang/golang_ddd.md)
    
 ---
 
