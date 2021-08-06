@@ -37,19 +37,19 @@ adapter->aplication->domain,domain层代码只像application层暴露。
 ```
 
 - main入口
+
 ```go
-package main
-
-import (
-	_ "github.com/olongfen/go-ddd-hex/internal/adapter/repository" // 初始化存储库适配器
-	_ "github.com/olongfen/go-ddd-hex/internal/adapter/xhttp/xgin" // 初始化http适配器
-	"github.com/olongfen/go-ddd-hex/internal/application"
-)
-
-func main() {
-	application.App.InjectServices().Run()
-}
-
+        package main
+        
+        import (
+        	_ "github.com/olongfen/go-ddd-hex/internal/adapter/repository" // 初始化存储库适配器
+        	_ "github.com/olongfen/go-ddd-hex/internal/adapter/xhttp/xgin" // 初始化http适配器
+        	"github.com/olongfen/go-ddd-hex/internal/application"
+        )
+        
+        func main() {
+        	application.App.InjectServices().Run()
+        }
 ```
 
 - application应用层主要代码
