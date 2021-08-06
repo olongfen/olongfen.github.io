@@ -54,90 +54,90 @@ adapter->aplication->domain,domain层代码只像application层暴露。
 
 - application应用层主要代码
 ```go
-package application
-
-import (
-	"context"
-	"errors"
-	"github.com/olongfen/go-ddd-hex/config"
-	"github.com/olongfen/go-ddd-hex/internal/domain/aggregate"
-	"github.com/olongfen/go-ddd-hex/internal/domain/dependency"
-	"github.com/olongfen/go-ddd-hex/internal/domain/service"
-	"github.com/olongfen/go-ddd-hex/internal/domain/vo"
-	"github.com/olongfen/go-ddd-hex/internal/infra/db"
-	"github.com/olongfen/go-ddd-hex/lib/utils"
-	"github.com/opentracing/opentracing-go"
-	log "github.com/sirupsen/logrus"
-	"github.com/uber/jaeger-client-go"
-	jaegercfg "github.com/uber/jaeger-client-go/config"
-	"github.com/uber/jaeger-client-go/log/zap"
-	"github.com/uber/jaeger-lib/metrics"
-	"io"
-	"os"
-	"reflect"
-)
-
-var (
-	App = new(Application)
-)
-
-func init() {
-	App.Ctx, App.Cancel = utils.NewWaitGroupCtx()
-	cfg := config.GetConfig()
-	// 数据库初始化
-	App.SetDatabase(db.NewDatabase(&cfg.DBConfig))
-	App.Connect()
-	if err := App.setTrace(); err != nil {
-		log.Fatal(err)
-	}
-}
-
-// UserInterface user 用户服务接口
-type UserInterface interface {
-	ChangePassword(id string, oldPwd, newPwd string) error
-	Get(id string) (res *vo.UserRes, err error)
-}
-
-// PostInterface post 服务接口
-type PostInterface interface {
-	GetByUserID(userID string) (*aggregate.QueryUserPostRes, error)
-}
-
-// XHttp  http 接口
-type XHttp interface {
-	Run()
-	Register(reps []Service) XHttp
-}
-
-// Database 数据库基础组件接口
-type Database interface {
-	Connect()
-	DB(ctx context.Context) interface{}
-}
-
-// Repository 存储库接口
-type Repository interface{}
-
-// Service service 服务接口
-type Service interface {
-}
-
-// Application 应用程序入口
-type Application struct {
-	Ctx    context.Context
-	Cancel context.CancelFunc
-	/*
-		根据环境变量配置jaeger，参考 https://github.com/jaegertracing/jaeger-client-go#environment-variables
-
-		JAEGER_AGENT_HOST
-		JAEGER_AGENT_PORT
-	*/
-	Tracer   opentracing.Tracer
-	repos    []Repository
-	services []Service
-	XHttp
-	Database
-}
+    package application
+    
+    import (
+    	"context"
+    	"errors"
+    	"github.com/olongfen/go-ddd-hex/config"
+    	"github.com/olongfen/go-ddd-hex/internal/domain/aggregate"
+    	"github.com/olongfen/go-ddd-hex/internal/domain/dependency"
+    	"github.com/olongfen/go-ddd-hex/internal/domain/service"
+    	"github.com/olongfen/go-ddd-hex/internal/domain/vo"
+    	"github.com/olongfen/go-ddd-hex/internal/infra/db"
+    	"github.com/olongfen/go-ddd-hex/lib/utils"
+    	"github.com/opentracing/opentracing-go"
+    	log "github.com/sirupsen/logrus"
+    	"github.com/uber/jaeger-client-go"
+    	jaegercfg "github.com/uber/jaeger-client-go/config"
+    	"github.com/uber/jaeger-client-go/log/zap"
+    	"github.com/uber/jaeger-lib/metrics"
+    	"io"
+    	"os"
+    	"reflect"
+    )
+    
+    var (
+    	App = new(Application)
+    )
+    
+    func init() {
+    	App.Ctx, App.Cancel = utils.NewWaitGroupCtx()
+    	cfg := config.GetConfig()
+    	// 数据库初始化
+    	App.SetDatabase(db.NewDatabase(&cfg.DBConfig))
+    	App.Connect()
+    	if err := App.setTrace(); err != nil {
+    		log.Fatal(err)
+    	}
+    }
+    
+    // UserInterface user 用户服务接口
+    type UserInterface interface {
+    	ChangePassword(id string, oldPwd, newPwd string) error
+    	Get(id string) (res *vo.UserRes, err error)
+    }
+    
+    // PostInterface post 服务接口
+    type PostInterface interface {
+    	GetByUserID(userID string) (*aggregate.QueryUserPostRes, error)
+    }
+    
+    // XHttp  http 接口
+    type XHttp interface {
+    	Run()
+    	Register(reps []Service) XHttp
+    }
+    
+    // Database 数据库基础组件接口
+    type Database interface {
+    	Connect()
+    	DB(ctx context.Context) interface{}
+    }
+    
+    // Repository 存储库接口
+    type Repository interface{}
+    
+    // Service service 服务接口
+    type Service interface {
+    }
+    
+    // Application 应用程序入口
+    type Application struct {
+    	Ctx    context.Context
+    	Cancel context.CancelFunc
+    	/*
+    		根据环境变量配置jaeger，参考 https://github.com/jaegertracing/jaeger-client-go#environment-variables
+    
+    		JAEGER_AGENT_HOST
+    		JAEGER_AGENT_PORT
+    	*/
+    	Tracer   opentracing.Tracer
+    	repos    []Repository
+    	services []Service
+    	XHttp
+    	Database
+    }
 ```
 
 - domain领域层
