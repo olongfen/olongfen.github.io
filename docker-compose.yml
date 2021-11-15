@@ -2,11 +2,12 @@ version: '3'
 
 services:
   blog:
+    network_mode: host
     image: python:3.8
     container_name: blog
     restart: always
-    ports:
-      - '9001:9001'
+#    ports:
+#      - '9001:9001'
     working_dir: /app
     volumes:
       - .:/app/
