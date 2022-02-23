@@ -25,6 +25,3 @@
 - [golang自动生成项目代码gengo](https://github.com/olongfen/gengo)
 ---
 - [golang自动生成身份证信息gen-id](https://github.com/olongfen/gen-id)
-
-
-                                            桂ICP备2020007255号-2
