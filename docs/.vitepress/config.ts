@@ -1,0 +1,61 @@
+import {defineConfig,UserConfig} from "vitepress";
+
+
+export default defineConfig({
+    title: 'olongfen dev note',
+    lastUpdated: true,
+    themeConfig: {
+        repo: 'olongfen/olongfen.github.io',
+        logo:'/logo.png',
+        docsDir: 'docs',
+        docsBranch: 'main',
+        editLinks: true,
+        editLinkText: 'Edit this page on GitHub',
+        lastUpdated: 'Last Updated',
+        nav: [
+            {text: 'Home',link:'/'},
+            {text: 'GOLANG',link:'/go/'},
+            {text: 'PYTHON',link:'/python/'},
+            {text: 'DOCKER',link:'/docker/'},
+            {text: 'LINUX',link:'/linux/'},
+            {text: 'K8S',link:'/k8s/'},
+            {text: 'SQL',link:'/sql/'},
+            {text: 'GIS',link:'/gis/'},
+        ],
+        sidebar: {
+            '/go/': [
+                {
+                    text: 'go快速入门',link:'/go/golang'
+                },
+                {
+                    text: 'go基本排序算法',link:'/go/sort'
+                },
+                {
+                    text: 'go领域驱动入坑',link:'/go/golang_ddd'
+                },
+                {
+                    text: 'go tcp入坑',link:'/go/gotcp'
+                },
+                {
+                    text: '时间包使用',link:'/go/time'
+                }
+            ],
+            '/python/':[
+                {text: 'WTI原油数据爬虫',link: '/python/wti_day'},
+                {text: '亚马逊商品爬虫',link: '/python/ymx'},
+            ],
+            '/linux/':[
+                {text: 'fedora',link: '/linux/fedora'},
+                {text: '常用指令1',link: '/linux/cmd'},
+            ],
+            '/docker/':[
+                {text: 'docker安装',link: '/docker/install'},
+                {text: 'docker-compose项目部署',link: '/docker/docker-compose'},
+            ],
+            '/sql/':[
+                {text: 'MYSQL',link: '/sql/mysql/', children:[{text:'基本操作',link:'/sql/mysql/mysql'}]},
+                {text: 'POSTGRES',link: '/sql/postgresql/' ,children:[{text:'常用sql',link:'/sql/postgresql/note'}]},
+            ]
+        }
+    },
+})
