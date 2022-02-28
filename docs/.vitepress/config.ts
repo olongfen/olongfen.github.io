@@ -8,7 +8,7 @@ export default defineConfig({
         repo: 'olongfen/olongfen.github.io',
         logo:'/logo.png',
         docsDir: 'docs',
-        docsBranch: 'main',
+        docsBranch: 'master',
         editLinks: true,
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last Updated',
