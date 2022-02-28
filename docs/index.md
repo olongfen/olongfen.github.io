@@ -11,7 +11,7 @@ footer: MIT Licensed | © 2022-present Olongfen
 
 - [博客主页](https://olongfen.github.io)
 ---
-- [go-sorm文档](https://olongfen.github.io/sorm/)
+- [go-ddd template](https://github.com/olongfen/ddd-template/)
 ---
 - [互联网免费书籍](https://github.com/ruanyf/free-books)
 ---
