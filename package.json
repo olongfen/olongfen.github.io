@@ -1,11 +1,12 @@
 {
-  "dependencies": {
-    "vitepress": "^0.22.3"
-  },
-    "scripts": {
-	        "test": "echo \"Error: no test specified\" && exit 1",
-		    "docs:dev": "vitepress dev docs",
-		        "docs:build": "vitepress build docs",
-			    "docs:serve": "vitepress serve docs"
-			    }
+		"dependencies": {
+				"vitepress": "^0.22.3",
+				"vue": "^3.2.31"
+		},
+		"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1",
+				"docs:dev": "vitepress dev docs",
+				"docs:build": "vitepress build docs",
+				"docs:serve": "vitepress serve docs"
+		}
 }

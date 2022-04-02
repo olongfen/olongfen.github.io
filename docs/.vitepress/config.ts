@@ -55,6 +55,11 @@ export default defineConfig({
             '/sql/':[
                 {text: 'MYSQL',link: '/sql/mysql/', children:[{text:'基本操作',link:'/sql/mysql/mysql'}]},
                 {text: 'POSTGRES',link: '/sql/postgresql/' ,children:[{text:'常用sql',link:'/sql/postgresql/note'}]},
+            ],
+            '/gis/':[
+                {text: 'GIS_Detail',link: '/gis/gis_detail'},
+                {text: 'GDAL',link: '/gis/gdal'},
+                {text: 'OGR',link: '/gis/ogr'},
             ]
         }
     },
