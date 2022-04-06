@@ -60,6 +60,7 @@ export default defineConfig({
                 {text: 'GIS_Detail',link: '/gis/gis_detail'},
                 {text: 'GDAL',link: '/gis/gdal'},
                 {text: 'OGR',link: '/gis/ogr'},
+                {text: 'spatialite',link: '/gis/spatialite'},
             ]
         }
     },
