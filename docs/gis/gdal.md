@@ -191,3 +191,148 @@ def tiff2png(source, out):
         print(e)
         return None
 ```
+
+### 图像波段切换
+
+```python
+# 图像波段变换
+from osgeo import gdal_array
+src = 'data/FalseColor.tif'
+arr = gdal_array.LoadFile(src)
+output = gdal_array.SaveArray(arr[[1,0,2], :],'data/swap.tif',format='GTiff',prototype=src)
+output=None
+```
+
+### 图像分类
+```python
+# 图像分类
+from osgeo import gdal_array
+src = 'data/thermal/thermal.tif'
+tgt = 'data/thermal/classified.jpg'
+
+src_arr = gdal_array.LoadFile(src)
+# 根据类别数目把直方图分割成20个颜色区间
+classes = gdal_array.numpy.histogram(src_arr,bins=20)[1]
+# 颜色查找表的记录必须为len(classes) +1
+# R G B元组
+lut = [[255, 0, 0], [191, 48, 48], [166, 0, 0], [255, 64, 64], [255, 155, 155],
+       [255, 116, 0], [191, 113, 48], [255, 178, 115], [0, 153, 153], [29, 115, 155],
+       [0, 99, 99], [166, 75, 0], [0, 204, 0], [51, 204, 204], [255, 150, 64],
+       [92, 204, 204], [38, 153, 38], [0, 133, 0], [57, 230, 57], [103, 230, 103],
+       [184, 138, 0]]
+# 分割初始值
+start = 1
+p = 0
+# 创建一个RGB颜色的JPEG输出图片
+rgb = gdal_array.numpy.zeros((3,src_arr.shape[0],src_arr.shape[1], ),gdal_array.numpy.float32)
+# 处理所有类并声明颜色
+for i in range(len(classes)):
+    # 获取标记的信息
+    mask = gdal_array.numpy.logical_and(start <=src_arr,src_arr<=classes[i])
+    for j in range(len(lut[i])):
+        # 选择标记数据
+        rgb[j]=gdal_array.numpy.choose(mask, (rgb[j],lut[i][j]))
+        p =p+1
+    start = classes[i]+1
+output = gdal_array.SaveArray(rgb.astype(gdal_array.numpy.uint8),tgt,format='JPEG')
+output = None
+```
+
+### 特征提取
+```python
+# 图像特征提取
+from osgeo import gdal_array
+src = 'data/islands/islands.tif'
+tgt = 'data/islands/islands_classified.tif'
+# 加载tif
+src_arr = gdal_array.LoadFile(src)
+# 根据类别数目把直方图分割成20个颜色区间
+classes = gdal_array.numpy.histogram(src_arr,bins=2)[1]
+lut = [ [255, 0, 0], [0, 0, 0], [255, 255, 255] ]
+# 分类起始
+start = 1
+# 建立输出图片
+rgb = gdal_array.numpy.zeros( (3, src_arr.shape[0], src_arr.shape[1]), gdal_array.numpy.float32)
+
+# 处理所有类别并分配颜色
+for i  in range(len(classes)):
+    mask = gdal_array.numpy.logical_and(start<=src_arr,  src_arr<=classes[i])
+    for j in range(len(lut[i])):
+        rgb[j] = gdal_array.numpy.choose(mask, (rgb[j], lut[i][j]) )
+    start = classes[i]+1
+
+output = gdal_array.SaveArray(rgb.astype(gdal_array.numpy.uint8), tgt, format='GTiff' )
+output = None
+```
+
+- 特征提取出shapefile
+```python
+from osgeo import gdal, ogr, osr
+ 
+# 阈值化后的输出栅格文件名称
+src = "data/islands/islands_classified.tif"
+# 输出的shapefile文件名称
+tgt = "data/islands/extract.shp"
+# 图层名称
+tgtLayer = "extract"
+# 打开输入的栅格文件
+srcDS = gdal.Open(src)
+# 获取第一个波段
+band = srcDS.GetRasterBand(1)
+# 让gdal库使用该波段作为遮罩层
+mask = band
+# 创建输出的shapefile文件
+driver = ogr.GetDriverByName("ESRI Shapefile")
+shp = driver.CreateDataSource(tgt)
+# 拷贝空间索引
+srs = osr.SpatialReference()
+srs.ImportFromWkt(srcDS.GetProjectionRef())
+layer = shp.CreateLayer(tgtLayer, srs=srs)
+# 创建dbf文件
+fd = ogr.FieldDefn("DN", ogr.OFTInteger)
+layer.CreateField(fd)
+dst_field = 0
+# 从图片中自动提取特征
+extract = gdal.Polygonize(band, mask, layer, dst_field, [], None)
+```
+
+### 变化检测
+```python
+# 变化检测
+from osgeo import gdal, gdal_array
+import numpy as np
+ 
+# 飓风前影像
+img1 = "./data/before/before.tif"
+# 飓风后影像
+img2 = "./data/after/after.tif"
+ 
+# 将上述图像载入数组
+arr1 = gdal_array.LoadFile(img1).astype(np.int8)
+arr2 = gdal_array.LoadFile(img2)[1].astype(np.int8)
+ 
+# 在图片数组上执行差值操作
+diff = arr2 - arr1
+ 
+# 建立类别架构并将变化特征隔离
+classes = np.histogram(diff, bins=5)[1]
+ 
+# 用黑色遮罩不是特变明显的变化特征
+lut = [[0, 0, 0], [0, 0, 0], [0, 0, 0],
+       [0, 0, 0], [0, 255, 0], [255, 0, 0]]
+# 类别初始值
+start = 1
+# 创建输出图片
+rgb = np.zeros((3, diff.shape[0], diff.shape[1], ), np.int8)
+ 
+# 处理所有类别并配色
+for i in range(len(classes)):
+    mask = np.logical_and(start <= diff, diff <= classes[i])
+    for j in range(len(lut[i])):
+        rgb[j] = np.choose(mask, (rgb[j], lut[i][j]))
+    start = classes[i] + 1
+ 
+# 保存图片结果
+output = gdal_array.SaveArray(rgb, "data/change.tif", format="GTiff", prototype=img2)
+output = None
+```
