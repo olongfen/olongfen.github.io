@@ -7,7 +7,7 @@
        # add
        export GOROOT=/data/bin/go
        export GOPATH=/data/gocode/
-       export PATH=$GOROOT/bin:GOPATH/bin:$PATH
+       export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
        export GO111MODULE=on
         ```
 
