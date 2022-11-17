@@ -11,6 +11,11 @@
          gdal_translate -of GTiff -a_srs EPSG:4326 -a_ullr  ulx uly lrx lry  input.jpg  out.tif
  
       ```
+   - gdal处理tif转成mbtiles使用
+     ```shell
+          gdal_translate -of mbtiles -co "ZLEVEL=9" test.tif out.mbtiles
+          gdaladdo -r gauss out.mbtiles 2 4 8 16 32
+     ```
      
 ### POSTGIS
 - postgis 导入数据指令 raster2pgsql

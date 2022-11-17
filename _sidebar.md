@@ -2,6 +2,7 @@
   - [装机安装环境配置](linux/fedora装机后环境配置.md)
   - [linux操作笔记](linux/linux-learn.md)
   - [linux常用命令](linux/often_use_common.md)
+  - [ubuntu22.04系统问题修复日志](linux/ubuntu.md)
 
 ---
 
