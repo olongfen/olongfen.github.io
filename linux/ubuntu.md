@@ -58,3 +58,10 @@ sudo chmod 777 NVIDIA-Linux-x86_64-430.26.run   #给你下载的驱动赋予可�
  
 sudo ./NVIDIA-Linux-x86_64-430.26.run #（–no-opengl-files）   #安装
 ```
+## systemctl 无法启动新服务:  Too many open files
+```shell
+    vim /etc/sysctl.conf
+    # 添加 fs.inotify.max_user_instances=512
+    # 添加 fs.inotify.max_user_watches=262144
+    sysctl -p # 生效
+```
