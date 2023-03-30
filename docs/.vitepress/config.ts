@@ -48,6 +48,7 @@ export default defineConfig({
                 {text: 'fedora',link: '/linux/fedora'},
                 {text: '常用指令1',link: '/linux/cmd'},
                 {text: 'ubuntu22.04系统问题修复日志',link: '/linux/ubuntu'},
+                {text: 'ubuntu_服务器日常问题处理备忘录',link: '/linux/ubuntu_服务器日常问题处理备忘录.md'},
             ],
             '/docker/':[
                 {text: 'docker安装',link: '/docker/install'},
