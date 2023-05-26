@@ -139,6 +139,10 @@ git blame someFile //查看某个文件的每一行的修改记录（）谁在�
 
 git push origin master 提交代码
 ```
+- git查看拉去时间记录
+```shell
+git reflog --data=iso-strict | grep pull
+```
 
 ## git上传本地项目到github
 - 一. 绑定用户:
@@ -175,4 +179,3 @@ git push origin master 提交代码
         7. 关联远程项目: `git remote add origin  https://github.com/olongfen/app.git(这个链接换成你的项目地址) `
         
         8. push到远程: `git push -u origin master`
-          
