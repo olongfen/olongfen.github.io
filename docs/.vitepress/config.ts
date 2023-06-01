@@ -21,6 +21,7 @@ export default defineConfig({
             {text: 'K8S',link:'/k8s/'},
             {text: 'SQL',link:'/sql/'},
             {text: 'GIS',link:'/gis/'},
+            {text: '数据库系统工程师笔记',link:'/db-system-engineer/'},
         ],
         sidebar: {
             '/go/': [
@@ -63,7 +64,11 @@ export default defineConfig({
                 {text: 'GDAL',link: '/gis/gdal'},
                 {text: 'OGR',link: '/gis/ogr'},
                 {text: 'spatialite',link: '/gis/spatialite'},
+            ],
+            '/db-system-engineer/':[
+                {text:"第一章计算机系统知识",link: '/db-system-engineer/chapter-one/computer-system'}
             ]
+
         }
     },
 })
