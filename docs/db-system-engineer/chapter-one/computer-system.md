@@ -1,3 +1,13 @@
 
-# 计算机组成结构
-<img :src="'/computer.png'" style="width: 100%; height: 100%" alt="">
+## 计算机组成结构
+
+![计算机组成结构](computer.png)
+
+## 计算机体系结构
+
+![计算机体系结构](computer-system.png)
+
+
+## 存储系统
+
+![img](store-system.png)
