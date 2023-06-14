@@ -1,18 +1,34 @@
-import {defineConfig,UserConfig} from "vitepress";
+import {defineUserConfig} from "vuepress";
+import { defaultTheme } from '@vuepress/theme-default'
+import { mdEnhancePlugin}from 'vuepress-plugin-md-enhance'
 
 
-export default defineConfig({
+export default defineUserConfig({
     title: 'olongfen dev note',
-    lastUpdated: true,
-    themeConfig: {
+    plugins:[
+        [
+            mdEnhancePlugin(
+            {
+                // 启用 figure
+                figure: true,
+                // 启用图片懒加载
+                imgLazyload: true,
+                // 启用图片标记
+                imgMark: true,
+                // 启用图片大小
+                imgSize: true,
+            })
+        ]
+    ],
+    theme: defaultTheme({
         repo: 'olongfen/olongfen.github.io',
         logo:'/logo.png',
         docsDir: 'docs',
         docsBranch: 'master',
-        editLinks: true,
+        editLink: true,
         editLinkText: 'Edit this page on GitHub',
-        lastUpdated: 'Last Updated',
-        nav: [
+        lastUpdated: true,
+        navbar: [
             {text: 'Home',link:'/'},
             {text: 'GOLANG',link:'/go/'},
             {text: 'PYTHON',link:'/python/'},
@@ -49,7 +65,7 @@ export default defineConfig({
                 {text: 'fedora',link: '/linux/fedora'},
                 {text: '常用指令1',link: '/linux/cmd'},
                 {text: 'ubuntu22.04系统问题修复日志',link: '/linux/ubuntu'},
-                {text: 'ubuntu_服务器日常问题处理备忘录',link: '/linux/ubuntu_服务器日常问题处理备忘录'},
+                {text: 'ubuntu_服务器日常问题处理备忘录',link: '/linux/ubuntu_daily_note'},
             ],
             '/docker/':[
                 {text: 'docker安装',link: '/docker/install'},
@@ -66,9 +82,10 @@ export default defineConfig({
                 {text: 'spatialite',link: '/gis/spatialite'},
             ],
             '/db-system-engineer/':[
-                {text:"第一章计算机系统知识",link: '/db-system-engineer/chapter-one/computer-system'}
+                {text:"第一章计算机系统知识",link: '/db-system-engineer/chapter-one'},
+                {text:"第四章操作系统基础",link: '/db-system-engineer/chapter-four'}
             ]
 
         }
-    },
+    })
 })

@@ -1,0 +1,1 @@
+export const data = JSON.parse("{\"key\":\"v-30d11df1\",\"path\":\"/db-system-engineer/chapter-four/\",\"title\":\"操作系统\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"db-system-engineer/chapter-four/index.md\"}")

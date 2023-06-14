@@ -1,0 +1,1 @@
+export const data = JSON.parse("{\"key\":\"v-01973361\",\"path\":\"/db-system-engineer/chapter-one/\",\"title\":\"计算机组成结构\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"db-system-engineer/chapter-one/index.md\"}")
