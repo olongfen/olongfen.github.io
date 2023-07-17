@@ -62,10 +62,12 @@ export default defineUserConfig({
                 {text: '亚马逊商品爬虫',link: '/python/ymx'},
             ],
             '/linux/':[
+                {text: '基本骚操作',link: '/linux/base'},
                 {text: 'fedora',link: '/linux/fedora'},
-                {text: '常用指令1',link: '/linux/cmd'},
+                {text: '常用指令',link: '/linux/cmd'},
                 {text: 'ubuntu22.04系统问题修复日志',link: '/linux/ubuntu'},
                 {text: 'ubuntu_服务器日常问题处理备忘录',link: '/linux/ubuntu_daily_note'},
+                {text:'ovirt安装',link: 'ovirt4.3_centos7'},
             ],
             '/docker/':[
                 {text: 'docker安装',link: '/docker/install'},

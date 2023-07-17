@@ -1,0 +1,1 @@
+export const data = JSON.parse("{\"key\":\"v-ca263598\",\"path\":\"/linux/base.html\",\"title\":\"centos7 安装证书\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"linux/base.md\"}")
