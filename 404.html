@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="VuePress 2.0.0-beta.66">
+    <style>
+      :root {
+        --c-bg: #fff;
+      }
+      html.dark {
+        --c-bg: #22272e;
+      }
+      html, body {
+        background-color: var(--c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme');
+			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
+				document.documentElement.classList.toggle('dark', true);
+			}
+    </script>
+    <title>olongfen dev note</title><meta name="description" content="">
+    <link rel="preload" href="/assets/style-5ea33731.css" as="style"><link rel="stylesheet" href="/assets/style-5ea33731.css">
+    <link rel="modulepreload" href="/assets/app-e9d335a5.js"><link rel="modulepreload" href="/assets/404.html-a2c79ae1.js"><link rel="modulepreload" href="/assets/404.html-60b35caa.js"><link rel="prefetch" href="/assets/index.html-bdf142f5.js" as="script"><link rel="prefetch" href="/assets/index.html-4b96a0d4.js" as="script"><link rel="prefetch" href="/assets/docker-compose.html-e6dde0f7.js" as="script"><link rel="prefetch" href="/assets/index.html-e570f52a.js" as="script"><link rel="prefetch" href="/assets/install.html-5ceae370.js" as="script"><link rel="prefetch" href="/assets/ascii.html-02217b98.js" as="script"><link rel="prefetch" href="/assets/gdal.html-6a94b317.js" as="script"><link rel="prefetch" href="/assets/gis_detail.html-0942d52b.js" as="script"><link rel="prefetch" href="/assets/index.html-61783a4b.js" as="script"><link rel="prefetch" href="/assets/ogr.html-4d002d96.js" as="script"><link rel="prefetch" href="/assets/spatialite.html-272d99d5.js" as="script"><link rel="prefetch" href="/assets/golang.html-e6beae21.js" as="script"><link rel="prefetch" href="/assets/golang_ddd.html-437f96f9.js" as="script"><link rel="prefetch" href="/assets/gotcp.html-fbdfd41e.js" as="script"><link rel="prefetch" href="/assets/index.html-475146a3.js" as="script"><link rel="prefetch" href="/assets/sort.html-6db4b2b1.js" as="script"><link rel="prefetch" href="/assets/time.html-dd73268b.js" as="script"><link rel="prefetch" href="/assets/index.html-4f5936f8.js" as="script"><link rel="prefetch" href="/assets/base.html-203ae60f.js" as="script"><link rel="prefetch" href="/assets/cmd.html-85832e76.js" as="script"><link rel="prefetch" href="/assets/fedora.html-1d2af788.js" as="script"><link rel="prefetch" href="/assets/index.html-f6d56f13.js" as="script"><link rel="prefetch" href="/assets/ovirt4.3_centos7.html-7a2bd7fa.js" as="script"><link rel="prefetch" href="/assets/ubuntu.html-f5e33fb3.js" as="script"><link rel="prefetch" href="/assets/ubuntu_daily_note.html-203312fd.js" as="script"><link rel="prefetch" href="/assets/index.html-6bbebe0f.js" as="script"><link rel="prefetch" href="/assets/wti_day.html-523e787b.js" as="script"><link rel="prefetch" href="/assets/ymx.html-3edb7038.js" as="script"><link rel="prefetch" href="/assets/index.html-6c54f6ba.js" as="script"><link rel="prefetch" href="/assets/index.html-fda946dd.js" as="script"><link rel="prefetch" href="/assets/index.html-ea684979.js" as="script"><link rel="prefetch" href="/assets/index.html-1e0645a6.js" as="script"><link rel="prefetch" href="/assets/mysql.html-b5e70e9e.js" as="script"><link rel="prefetch" href="/assets/index.html-213deddf.js" as="script"><link rel="prefetch" href="/assets/note.html-3e0155fd.js" as="script"><link rel="prefetch" href="/assets/index.html-da65e476.js" as="script"><link rel="prefetch" href="/assets/index.html-5870be88.js" as="script"><link rel="prefetch" href="/assets/docker-compose.html-54657c89.js" as="script"><link rel="prefetch" href="/assets/index.html-39d752f0.js" as="script"><link rel="prefetch" href="/assets/install.html-ac57f068.js" as="script"><link rel="prefetch" href="/assets/ascii.html-ed491f9c.js" as="script"><link rel="prefetch" href="/assets/gdal.html-8b4bb765.js" as="script"><link rel="prefetch" href="/assets/gis_detail.html-a6348ef7.js" as="script"><link rel="prefetch" href="/assets/index.html-2ccb7d5f.js" as="script"><link rel="prefetch" href="/assets/ogr.html-de6063dd.js" as="script"><link rel="prefetch" href="/assets/spatialite.html-bda0bf69.js" as="script"><link rel="prefetch" href="/assets/golang.html-72bb0656.js" as="script"><link rel="prefetch" href="/assets/golang_ddd.html-790aaee1.js" as="script"><link rel="prefetch" href="/assets/gotcp.html-4bcb8851.js" as="script"><link rel="prefetch" href="/assets/index.html-82292923.js" as="script"><link rel="prefetch" href="/assets/sort.html-a346cebd.js" as="script"><link rel="prefetch" href="/assets/time.html-9d6c6e68.js" as="script"><link rel="prefetch" href="/assets/index.html-42347bac.js" as="script"><link rel="prefetch" href="/assets/base.html-c15487f3.js" as="script"><link rel="prefetch" href="/assets/cmd.html-af2b6175.js" as="script"><link rel="prefetch" href="/assets/fedora.html-a798e20f.js" as="script"><link rel="prefetch" href="/assets/index.html-a65abdab.js" as="script"><link rel="prefetch" href="/assets/ovirt4.3_centos7.html-6d281027.js" as="script"><link rel="prefetch" href="/assets/ubuntu.html-12ac74b4.js" as="script"><link rel="prefetch" href="/assets/ubuntu_daily_note.html-721f69e9.js" as="script"><link rel="prefetch" href="/assets/index.html-ba60a0e9.js" as="script"><link rel="prefetch" href="/assets/wti_day.html-46b4a40a.js" as="script"><link rel="prefetch" href="/assets/ymx.html-e33158b3.js" as="script"><link rel="prefetch" href="/assets/index.html-c6087248.js" as="script"><link rel="prefetch" href="/assets/index.html-4cae5d64.js" as="script"><link rel="prefetch" href="/assets/index.html-14fcde35.js" as="script"><link rel="prefetch" href="/assets/index.html-f7ebc89e.js" as="script"><link rel="prefetch" href="/assets/mysql.html-1024838e.js" as="script"><link rel="prefetch" href="/assets/index.html-3953984f.js" as="script"><link rel="prefetch" href="/assets/note.html-f6fabac5.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme-container"><main class="page"><div class="theme-default-content"><h1>404</h1><blockquote>Looks like we&#39;ve got some broken links.</blockquote><a href="/" class="">Take me home</a></div></main></div><!----><!--]--></div>
+    <script type="module" src="/assets/app-e9d335a5.js" defer></script>
+  </body>
+</html>

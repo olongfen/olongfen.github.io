@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-81ab16fe","path":"/sql/postgresql/","title":"","lang":"en-US","frontmatter":{},"headers":[{"level":2,"title":"常用sql","slug":"常用sql","link":"#常用sql","children":[]}],"git":{"updatedTime":1646017488000,"contributors":[{"name":"olongfen","email":"824426699@qq.com","commits":1}]},"filePathRelative":"sql/postgresql/index.md"}');export{e as data};
