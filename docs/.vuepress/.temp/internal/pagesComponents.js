@@ -11,18 +11,6 @@ export const pagesComponents = {
   "v-51f86e14": defineAsyncComponent(() => import(/* webpackChunkName: "v-51f86e14" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/docker/index.html.vue")),
   // path: /docker/install.html
   "v-70196c14": defineAsyncComponent(() => import(/* webpackChunkName: "v-70196c14" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/docker/install.html.vue")),
-  // path: /go/golang.html
-  "v-17a5c455": defineAsyncComponent(() => import(/* webpackChunkName: "v-17a5c455" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/golang.html.vue")),
-  // path: /go/golang_ddd.html
-  "v-2723bb60": defineAsyncComponent(() => import(/* webpackChunkName: "v-2723bb60" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/golang_ddd.html.vue")),
-  // path: /go/gotcp.html
-  "v-597710a4": defineAsyncComponent(() => import(/* webpackChunkName: "v-597710a4" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/gotcp.html.vue")),
-  // path: /go/
-  "v-2d0a8eae": defineAsyncComponent(() => import(/* webpackChunkName: "v-2d0a8eae" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/index.html.vue")),
-  // path: /go/sort.html
-  "v-bd1b99e6": defineAsyncComponent(() => import(/* webpackChunkName: "v-bd1b99e6" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/sort.html.vue")),
-  // path: /go/time.html
-  "v-b7508984": defineAsyncComponent(() => import(/* webpackChunkName: "v-b7508984" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/time.html.vue")),
   // path: /gis/ascii.html
   "v-76442c5f": defineAsyncComponent(() => import(/* webpackChunkName: "v-76442c5f" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/gis/ascii.html.vue")),
   // path: /gis/gdal.html
@@ -35,6 +23,18 @@ export const pagesComponents = {
   "v-5c1c5576": defineAsyncComponent(() => import(/* webpackChunkName: "v-5c1c5576" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/gis/ogr.html.vue")),
   // path: /gis/spatialite.html
   "v-c5c5a8a8": defineAsyncComponent(() => import(/* webpackChunkName: "v-c5c5a8a8" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/gis/spatialite.html.vue")),
+  // path: /go/golang.html
+  "v-17a5c455": defineAsyncComponent(() => import(/* webpackChunkName: "v-17a5c455" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/golang.html.vue")),
+  // path: /go/golang_ddd.html
+  "v-2723bb60": defineAsyncComponent(() => import(/* webpackChunkName: "v-2723bb60" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/golang_ddd.html.vue")),
+  // path: /go/gotcp.html
+  "v-597710a4": defineAsyncComponent(() => import(/* webpackChunkName: "v-597710a4" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/gotcp.html.vue")),
+  // path: /go/
+  "v-2d0a8eae": defineAsyncComponent(() => import(/* webpackChunkName: "v-2d0a8eae" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/index.html.vue")),
+  // path: /go/sort.html
+  "v-bd1b99e6": defineAsyncComponent(() => import(/* webpackChunkName: "v-bd1b99e6" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/sort.html.vue")),
+  // path: /go/time.html
+  "v-b7508984": defineAsyncComponent(() => import(/* webpackChunkName: "v-b7508984" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/time.html.vue")),
   // path: /k8s/
   "v-74485282": defineAsyncComponent(() => import(/* webpackChunkName: "v-74485282" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/k8s/index.html.vue")),
   // path: /linux/base.html

@@ -9,18 +9,6 @@ export const pagesData = {
   "v-51f86e14": () => import(/* webpackChunkName: "v-51f86e14" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/docker/index.html.js").then(({ data }) => data),
   // path: /docker/install.html
   "v-70196c14": () => import(/* webpackChunkName: "v-70196c14" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/docker/install.html.js").then(({ data }) => data),
-  // path: /go/golang.html
-  "v-17a5c455": () => import(/* webpackChunkName: "v-17a5c455" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/golang.html.js").then(({ data }) => data),
-  // path: /go/golang_ddd.html
-  "v-2723bb60": () => import(/* webpackChunkName: "v-2723bb60" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/golang_ddd.html.js").then(({ data }) => data),
-  // path: /go/gotcp.html
-  "v-597710a4": () => import(/* webpackChunkName: "v-597710a4" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/gotcp.html.js").then(({ data }) => data),
-  // path: /go/
-  "v-2d0a8eae": () => import(/* webpackChunkName: "v-2d0a8eae" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/index.html.js").then(({ data }) => data),
-  // path: /go/sort.html
-  "v-bd1b99e6": () => import(/* webpackChunkName: "v-bd1b99e6" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/sort.html.js").then(({ data }) => data),
-  // path: /go/time.html
-  "v-b7508984": () => import(/* webpackChunkName: "v-b7508984" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/time.html.js").then(({ data }) => data),
   // path: /gis/ascii.html
   "v-76442c5f": () => import(/* webpackChunkName: "v-76442c5f" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/gis/ascii.html.js").then(({ data }) => data),
   // path: /gis/gdal.html
@@ -33,6 +21,18 @@ export const pagesData = {
   "v-5c1c5576": () => import(/* webpackChunkName: "v-5c1c5576" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/gis/ogr.html.js").then(({ data }) => data),
   // path: /gis/spatialite.html
   "v-c5c5a8a8": () => import(/* webpackChunkName: "v-c5c5a8a8" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/gis/spatialite.html.js").then(({ data }) => data),
+  // path: /go/golang.html
+  "v-17a5c455": () => import(/* webpackChunkName: "v-17a5c455" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/golang.html.js").then(({ data }) => data),
+  // path: /go/golang_ddd.html
+  "v-2723bb60": () => import(/* webpackChunkName: "v-2723bb60" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/golang_ddd.html.js").then(({ data }) => data),
+  // path: /go/gotcp.html
+  "v-597710a4": () => import(/* webpackChunkName: "v-597710a4" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/gotcp.html.js").then(({ data }) => data),
+  // path: /go/
+  "v-2d0a8eae": () => import(/* webpackChunkName: "v-2d0a8eae" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/index.html.js").then(({ data }) => data),
+  // path: /go/sort.html
+  "v-bd1b99e6": () => import(/* webpackChunkName: "v-bd1b99e6" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/sort.html.js").then(({ data }) => data),
+  // path: /go/time.html
+  "v-b7508984": () => import(/* webpackChunkName: "v-b7508984" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/go/time.html.js").then(({ data }) => data),
   // path: /k8s/
   "v-74485282": () => import(/* webpackChunkName: "v-74485282" */"/home/jelly/go/src/olongfen.github.io/docs/.vuepress/.temp/pages/k8s/index.html.js").then(({ data }) => data),
   // path: /linux/base.html
